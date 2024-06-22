@@ -1,90 +1,83 @@
 <!DOCTYPE html>  
-<html>  
+<html lang="en">  
 <head>  
-    <title>居中显示图片</title>  
-    <style>
-        body {  
-            background-color: #f0f0f0;  
-        } 
-        .center-image {  
-            display: block;  
-            margin-left: auto;  
-            margin-right: auto;  
-            max-width: 100%; 
-            height: auto; 
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>图片轮播</title>  
+    <style>  
+
+        body, html {  
+            background-color: #f0f0f0; /* 设置背景颜色为浅灰色 */ 
+            height: 100%;  
+            margin: 0;  
+            display: flex;  
+            justify-content: center; /* 水平居中 */  
+            align-items: center; /* 垂直居中 */  
         }  
-    </style>  
+      
+        .image-container {  
+            text-align: center; /* 图片水平居中 */  
+            position: relative;  
+        }  
+      
+        .image-container img {  
+            position: absolute;  
+            top: 50%;  
+            left: 50%;  
+            transform: translate(-50%, -50%); /* 图片在容器中垂直水平居中 */  
+            display: none; /* 初始时隐藏所有图片 */  
+        }  
+      
+        .image-container img:first-child {  
+            display: block; /* 只显示第一张图片 */  
+        }  
+    </style> 
+    <script>  
+        var currentIndex = 0;  
+        var images = []; // 用于存储所有图片元素  
+  
+        function showNextImage() {  
+            // 隐藏当前图片  
+            images[currentIndex].style.display = 'none';  
+              
+            // 更新索引到下一张图片  
+            currentIndex = (currentIndex + 1) % images.length;  
+              
+            // 显示下一张图片  
+            images[currentIndex].style.display = 'block';  
+        }  
+    </script>  
 </head>  
-<body>  
-    <img src="elephant\images\Elephant Color Printing_00.png" alt="Elephant Color Printing" class="center-image">  
-    <br>
-    <br/>
-    <img src="elephant\images\Elephant Color Printing_01.png" alt="Elephant Color Printing" class="center-image">  
-    <br>
-    <br/>
-    <img src="elephant\images\Elephant Color Printing_03.png" alt="Elephant Color Printing" class="center-image"> 
-    <br>
-    <br/>
-    <img src="elephant\images\Elephant Color Printing_04.png" alt="Elephant Color Printing" class="center-image"> 
-    <br>
-    <br/>
-    <img src="elephant\images\Elephant Color Printing_05.png" alt="Elephant Color Printing" class="center-image"> 
-    <br>
-    <br/>
-    <img src="elephant\images\Elephant Color Printing_06.png" alt="Elephant Color Printing" class="center-image"> 
-    <br>
-    <br/>
-    <img src="elephant\images\Elephant Color Printing_07.png" alt="Elephant Color Printing" class="center-image"> 
-    <br>
-    <br/>
-    <img src="elephant\images\Elephant Color Printing_08.png" alt="Elephant Color Printing" class="center-image"> 
-    <br>
-    <br/>
-    <img src="elephant\images\Elephant Color Printing_09.png" alt="Elephant Color Printing" class="center-image"> 
-    <br>
-    <br/>
-    <img src="elephant\images\Elephant Color Printing_10.png" alt="Elephant Color Printing" class="center-image"> 
-    <br>
-    <br/>
-    <img src="elephant\images\Elephant Color Printing_11.png" alt="Elephant Color Printing" class="center-image"> 
-    <br>
-    <br/>
-    <img src="elephant\images\Elephant Color Printing_12.png" alt="Elephant Color Printing" class="center-image"> 
-    <br>
-    <br/>
-    <img src="elephant\images\Elephant Color Printing_13.png" alt="Elephant Color Printing" class="center-image"> 
-    <br>
-    <br/>
-    <img src="elephant\images\Elephant Color Printing_14.png" alt="Elephant Color Printing" class="center-image"> 
-    <br>
-    <br/>
-    <img src="elephant\images\Elephant Color Printing_15.png" alt="Elephant Color Printing" class="center-image"> 
-    <br>
-    <br/>
-    <img src="elephant\images\Elephant Color Printing_16.png" alt="Elephant Color Printing" class="center-image"> 
-    <br>
-    <br/>
-    <img src="elephant\images\Elephant Color Printing_17.png" alt="Elephant Color Printing" class="center-image"> 
-    <br>
-    <br/>
-    <img src="elephant\images\Elephant Color Printing_18.png" alt="Elephant Color Printing" class="center-image"> 
-    <br>
-    <br/>
-    <img src="elephant\images\Elephant Color Printing_19.png" alt="Elephant Color Printing" class="center-image"> 
-    <br>
-    <br/>
-    <img src="elephant\images\Elephant Color Printing_20.png" alt="Elephant Color Printing" class="center-image"> 
-    <br>
-    <br/>
-    <img src="elephant\images\Elephant Color Printing_21.png" alt="Elephant Color Printing" class="center-image"> 
-    <br>
-    <br/>
-    <img src="elephant\images\Elephant Color Printing_22.png" alt="Elephant Color Printing" class="center-image"> 
-    <br>
-    <br/>
-    <img src="elephant\images\Elephant Color Printing_23.png" alt="Elephant Color Printing" class="center-image"> 
-    <br>
-    <br/>
-    <img src="elephant\images\Elephant Color Printing_24.png" alt="Elephant Color Printing" class="center-image"> 
+<body onload="images = document.querySelectorAll('.image-container img');">  
+    <div class="image-container" onclick="showNextImage()">  
+        <img src="elephant/images/Elephant Color Printing_00.png" alt="Image 1">  
+        <img src="elephant/images/Elephant Color Printing_01.png" alt="Image 2">  
+        <img src="elephant/images/Elephant Color Printing_02.png" alt="Image 3">  
+        <img src="elephant/images/Elephant Color Printing_03.png" alt="Image 4">  
+        <img src="elephant/images/Elephant Color Printing_04.png" alt="Image 5">  
+        <img src="elephant/images/Elephant Color Printing_05.png" alt="Image 6">  
+        <img src="elephant/images/Elephant Color Printing_06.png" alt="Image 7">  
+        <img src="elephant/images/Elephant Color Printing_07.png" alt="Image 8">  
+        <img src="elephant/images/Elephant Color Printing_08.png" alt="Image 9">  
+        <img src="elephant/images/Elephant Color Printing_09.png" alt="Image 10">  
+        <img src="elephant/images/Elephant Color Printing_10.png" alt="Image 11">  
+        <img src="elephant/images/Elephant Color Printing_11.png" alt="Image 12">  
+        <img src="elephant/images/Elephant Color Printing_12.png" alt="Image 13">  
+        <img src="elephant/images/Elephant Color Printing_13.png" alt="Image 14">  
+        <img src="elephant/images/Elephant Color Printing_14.png" alt="Image 15">  
+        <img src="elephant/images/Elephant Color Printing_15.png" alt="Image 16">  
+        <img src="elephant/images/Elephant Color Printing_16.png" alt="Image 17">  
+        <img src="elephant/images/Elephant Color Printing_17.png" alt="Image 18">  
+        <img src="elephant/images/Elephant Color Printing_18.png" alt="Image 19">  
+        <img src="elephant/images/Elephant Color Printing_19.png" alt="Image 20">  
+        <img src="elephant/images/Elephant Color Printing_20.png" alt="Image 21">  
+        <img src="elephant/images/Elephant Color Printing_21.png" alt="Image 22">  
+        <img src="elephant/images/Elephant Color Printing_22.png" alt="Image 23">  
+        <img src="elephant/images/Elephant Color Printing_23.png" alt="Image 24">  
+        <img src="elephant/images/Elephant Color Printing_24.png" alt="Image 25">
+          
+          
+        <!-- 添加更多图片只需复制img标签并更新src -->  
+    </div>  
 </body>  
 </html>
