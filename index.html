@@ -10,19 +10,23 @@
             background-color: #f0f0f0; /* 设置背景颜色为浅灰色 */ 
             height: 100%;  
             margin: 0;  
+            display: flex;  
+            justify-content: center; /* 水平居中 */  
+            align-items: center; /* 垂直居中 */  
         }  
       
         .image-container {  
             text-align: center; /* 图片水平居中 */  
-            margin: 20px auto; /* 添加外边距以实现垂直方向上的一定间距，并保持水平居中 */  
-            width: 100%; /* 设置容器宽度为100%，以适应不同屏幕尺寸 */  
-            max-width: 600px; /* 可根据需要设置容器的最大宽度 */  
-        } 
+            position: relative;  
+            width: 100%;
+        }  
       
         .image-container img {  
+            position: absolute;  
+            top: 50%;  
+            left: 50%;  
+            transform: translate(-50%, -50%); /* 图片在容器中垂直水平居中 */  
             display: none; /* 初始时隐藏所有图片 */  
-            max-width: 100%; /* 确保图片不会超出容器宽度 */  
-            height: auto; /* 保持图片的宽高比 */  
         }  
       
         .image-container img:first-child {  
